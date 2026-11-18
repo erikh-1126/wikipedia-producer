@@ -1,11 +1,8 @@
 name: test
 
-# Hopefully this runs when I push it
-
+# Reusable only: runs when docker.yml calls it, never on its own.
 on:
-  push:
-    tags:
-      - "[0-9]+.[0-9]+"
+  workflow_call:   # lets docker.yml run the tests before building
 
 jobs:
   test:
